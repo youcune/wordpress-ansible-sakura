@@ -1,6 +1,6 @@
 # wordpress-ansible-sakura
 
-は、さくらのレンタルサーバーに WordPress を設置するための Ansible Playbook です。
+は、さくらのレンタルサーバーに WordPress を設置するための Ansible Playbook です。 [Ansible と wp-cli で WordPress の構築を自動化してみた話](http://qiita.com/youcune/items/c15a44d9b483f96fa9d3) もあわせてお読みください。
 
 ## Setup
 
