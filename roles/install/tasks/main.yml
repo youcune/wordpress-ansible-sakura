@@ -7,5 +7,5 @@
     chdir={{ envs[env].wordpress_dir }} creates={{ envs[env].wordpress_dir }}/index.php
 - shell: '{{ envs[env].wp_cli_dir }}/wp core config --dbname={{ envs[env].mysql_dbname }} --dbuser={{ envs[env].mysql_dbuser }} --dbpass={{ envs[env].mysql_dbpass }} --dbhost={{ envs[env].mysql_dbhost }}'
     chdir={{ envs[env].wordpress_dir }} creates={{ envs[env].wordpress_dir }}/wp-config.php
-- shell: '{{ envs[env].wp_cli_dir }}/wp core install --url={{ envs[env].url }} --title='{{ envs[env].title }}' --admin_user={{ envs[env].admin_user }} --admin_password={{ envs[env].admin_password }} --admin_email={{ envs[env].admin_email }}'
+- shell: '{{ envs[env].wp_cli_dir }}/wp core install --url={{ envs[env].url }} --title="{{ envs[env].title }}" --admin_user={{ envs[env].admin_user }} --admin_password={{ envs[env].admin_password }} --admin_email={{ envs[env].admin_email }}'
     chdir={{ envs[env].wordpress_dir }}
