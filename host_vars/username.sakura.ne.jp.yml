@@ -1,0 +1,27 @@
+---
+# 実際の運用でこのファイルをリポジトリに格納するときは ansible-vault なり使用して暗号化すべき
+envs:
+  staging:
+    wp_cli_dir: ~/www/bin
+    wordpress_dir: ~/www/staging
+    mysql_dbname: '{{ ansible_ssh_user }}_wp_staging'
+    mysql_dbuser: '{{ ansible_ssh_user }}'
+    mysql_dbpass: dbpassword
+    mysql_dbhost: mysqlXXX.db.sakura.ne.jp
+    url: http://example.com/
+    title: WordPress 練習サイト
+    admin_user: youcune
+    admin_password: adminpassword
+    admin_email: admin@example.com
+  production:
+    wp_cli_dir: ~/www/bin
+    wordpress_dir: ~/www/production
+    mysql_dbname: '{{ ansible_ssh_user }}_wp_production'
+    mysql_dbuser: '{{ ansible_ssh_user }}'
+    mysql_dbpass: dbpassword
+    mysql_dbhost: mysqlXXX.db.sakura.ne.jp
+    url: http://stg.example.com/
+    title: WordPress 練習サイト
+    admin_user: youcune
+    admin_password: adminpassword
+    admin_email: admin@example.com

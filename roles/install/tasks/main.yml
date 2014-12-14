@@ -1,0 +1,11 @@
+---
+- file: path={{ envs[env].wp_cli_dir }} state=directory
+- get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+    dest={{ envs[env].wp_cli_dir }}/wp validate_certs=no mode=0755
+- file: path={{ envs[env].wordpress_dir }} state=directory
+- shell: ~/bin/wp core download --locale=ja
+    chdir={{ envs[env].wordpress_dir }} creates={{ envs[env].wordpress_dir }}/index.php
+- shell: ~/bin/wp core config --dbname={{ envs[env].mysql_dbname }} --dbuser={{ envs[env].mysql_dbuser }} --dbpass={{ envs[env].mysql_dbpass }} --dbhost={{ envs[env].mysql_dbhost }}
+    chdir={{ envs[env].wordpress_dir }} creates={{ envs[env].wordpress_dir }}/wp-config.php
+- shell: ~/bin/wp core install --url={{ envs[env].url }} --title='{{ envs[env].title }}' --admin_user={{ envs[env].admin_user }} --admin_password={{ envs[env].admin_password }} --admin_email={{ envs[env].admin_email }}
+    chdir={{ envs[env].wordpress_dir }}
